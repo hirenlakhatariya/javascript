@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>searches a word</title>
+
+	<style type="text/css">
+		body
+		{
+			font-size: 30px;
+
+		}
+	</style>
+</head>
+<body>
+	
+	<h3 align="center">(11)Write a JavaScript, that uses a loop, that searches a word in sentence held
+in an array, returning the index of the word.</h3>
+
+	<script type="text/javascript">
+		
+		s1="I am write a program, the program is very hard. this is work of programming. the program is givan by our faculty.<br/><br/> The index of 'program' are : "
+
+		document.write(s1)
+		pos=0	
+		temp=0
+			while(temp>-1){
+				
+			temp=parseInt(s1.indexOf("this",pos)) // index of program after pos
+			document.write("<br/>"+ temp)
+			pos=pos+temp // increment pointer
+			pos++ // increment position to one (of two position)
+
+			
+
+			}
+			
+
+		
+
+
+		
+		
+
+	</script>
+
+</body>
+</html>

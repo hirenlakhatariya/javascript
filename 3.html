@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Prime Number Range</title>
+</head>
+<body>
+
+	<h3 align="centers">(3)  WAP to print all prime numbere between two given numbers.</h3>
+
+		<script type="text/javascript">
+	
+			n1 =parseInt(prompt("Enter the first number : ")) 
+			n2 = parseInt(prompt("Enter the last number : "))
+			
+			document.write("The prime numbers between " + n1 + " & " + n2 + " is : ")
+
+			for(i=n1;i<=n2;i++) //looping from lowerNumber to higherNumber
+				{
+					flag=0;
+					
+					for(j=2;j<=i/2;j++)  // looping through 2 to user input number
+					{
+						if(i%j==0)
+						{
+							flag=1
+							break;
+						}
+					}
+					if(flag==0) //if flag==0 than print the result
+					{
+						document.write(i + " ")
+					}
+				}	
+
+			
+		</script>
+</body>
+</html>

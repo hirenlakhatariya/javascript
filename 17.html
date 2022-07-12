@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+</head>
+<body>
+		<h3 align="center">(17) WAP to create simple calculator using prompt and document.write
+method.</h3>
+			
+		<script type="text/javascript">
+			
+			n1 =parseInt(prompt("Enter the first number : ")) 
+			n2 = parseInt(prompt("Enter the last number : "))
+
+			op = prompt("Enter the operator")
+
+			if(op=="+")
+			{
+				ans = n1 + n2
+				document.write("the answer is " + n1 + " " + op + " " + n2 + " = " + ans )
+			}
+			else if(op=="-")
+			{
+				ans = n1 - n2
+				document.write("the answer is " + n1 + " " + op + " " + n2 + " = " + ans )
+			}
+			else if(op=="*")
+			{
+				ans = n1 * n2
+				document.write("the answer is " + n1 + " " + op + " " + n2 + " = " + ans )
+			}
+			else if(op=="/")
+			{
+				ans = n1 / n2
+				document.write("the answer is " + n1 + " " + op + " " + n2 + " = " + ans )
+			}
+			else
+			{
+				document.write("please enter valid operator..")
+			}
+
+		</script>
+</body>
+</html>

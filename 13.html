@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Countries</title>
+</head>
+<body>
+	<h3>(13) WAP to create an array of countries, read values of an array from the user and print it.</h3>
+
+	<script type="text/javascript">
+
+		document.write("The countries are : <br/>")
+
+		n=parseInt(prompt("Enter The Number : "))
+		array = new Array(n)
+		
+		for(i=0;i<n;i++)
+		{
+			array[i]=prompt("Enter the country of number "+i+ " = " )
+		}
+
+		for(i=0;i<n;i++)
+		{
+			document.write(array[i]+"<br/>")
+		}
+	</script>
+</body>
+</html>

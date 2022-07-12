@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>digit power</title>
+</head>
+<body>
+		<h3 align="center">
+			(10) Write a JavaScript to take 2 digit number and then separate these 2 digits,
+then multiply first digit by itself for second digit times. (for example, 23
+should be separated as 2 and 3. 2 should multiply with itself 3 times).
+		</h3>
+
+		<script type="text/javascript">
+			x=0
+			n=parseInt(prompt("Enter the number :"))
+			temp=n
+			var Array = new Array(); // declare array
+			i=0 // for array
+			ans=1
+			while(n>0)
+			{
+				rem=n%10
+				Array[i]=rem   // rem = first digit
+				n=parseInt(n/10)
+				i++ // part of numbers
+				x++ // number length
+				
+			}
+			if(x>2 || x<2) // for invalid value
+			{
+				document.write(" is Invalid number ( please enter 2 digit number ) ")
+			}
+
+			for(i=0;i<2;i++) // for take power
+				{
+					power = Array[i] // for power = last digit
+					break;
+				}
+
+				for(i=1;i<=power;i++) // for find the power
+				{
+					ans= ans*rem
+				}
+			document.write("The number of " + temp +" in the number " + rem + " raise to "+power+ " = " + ans)
+			
+			
+
+			
+		</script>
+</body>
+</html>
