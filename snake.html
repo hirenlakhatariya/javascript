@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1">
+	<title>snake</title>
+	<style type="text/css">
+		#image1{
+			width: 40px;
+			height: 40px;
+			border-color: red;
+			transform: scaleX(-1);
+		}
+		#image2{
+			width: 30px;
+			height: 30px;
+			position: absolute;	
+		}
+		#logo{
+			position:absolute;
+			top: 15px;
+			left: 1320px;
+		}
+		#main{
+			margin-left: 0px;
+			margin-top: 0px;
+			width: 1420px;
+			height: 600px;
+			background-image: url("back.jpg");
+			background-size: 1450px 600px;
+			font-size:34px;
+			border-color: red;
+			color= white;
+		}
+		#secondTable{
+			margin-left:0px;
+			margin-top:0px;
+			width: 1420px;
+			height: 95px;
+			border-color: red;
+			background-color: black;
+			color: white;
+			align-content: center;
+		}
+		#text{
+			font-size: 84px;
+			color: red;
+		}
+		#counter{
+			font-size: 25px;}
+		.button{
+			width: 100%;
+			height: 36px;
+			background-color: black;
+			font-size: 20px;
+			color: white;
+		>
+	</style>
+
+</head>
+<body onkeydown="keyboard(event)" onload="ball()">
+
+	<table id ="main" border="4">
+		<tr>
+			<td id="text" align="center">
+				<img src="header.jpg" id="logo" width="100">
+				<img src="snake.png" id="image1" style="position: absolute; top: 100px; left: 200px;">	
+				<img src="ball.png" id="image2">
+			</td>
+		</tr>
+	</table>
+	
+	<table border="4" id="secondTable"> 
+		<tr>
+			<tr>
+				<td colspan="3" align="center"> 
+					<input  type="button" id="top"  class="button" value="TOP" onclick="onTop()">
+				</td>
+				<td rowspan="2" width="20%" id="counter" align="center"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="left" class="button" value="LEFT" onclick="onLeft()"></td>
+				<td><input type="button" id="bootom" class="button" value="BOTTOM" onclick="onBottom()"></td>
+				<td><input type="button" id="right" class="button" value="RIGHT" onclick="onRight()"></td>
+			</tr>
+		</tr>
+	</table>
+
+<script type="text/javascript">
+
+	x = 100;
+	y = 200;
+
+	tops=0;
+	lefts=0;
+	rights=0;
+	bottoms=0;
+
+	counter = 0;
+
+	A=0;
+	B=0;
+	score = 0;
+	
+	function onLeft(){	
+		clearInterval(tops);
+		clearInterval(rights);
+		clearInterval(bottoms);
+		lefts = setInterval(startLeft,1);
+	}
+	function onTop(){
+		clearInterval(tops);
+		clearInterval(lefts);
+		clearInterval(bottoms);
+		rights = setInterval(startTop,1);
+	}
+	function onRight(){
+		clearInterval(rights);
+		clearInterval(lefts);
+		clearInterval(bottoms);
+		tops = setInterval(startRight,1);	
+	}
+	function onBottom(){
+		clearInterval(tops);
+		clearInterval(lefts);
+		clearInterval(rights);
+		bottoms = setInterval(startBottom,1);
+	}
+
+	
+
+	function startLeft(){
+
+
+		if(y>15){
+
+			y=y-1;
+			document.getElementById("image1").style.left=y+"px";
+			Score();
+		}
+		else{
+			counter++;
+			if(counter<3){
+				clearInterval(tops);
+				clearInterval(lefts);
+				clearInterval(rights);
+				clearInterval(bottoms);
+			}
+			else{
+				document.getElementById("text").innerHTML = " Game Over";
+				clearInterval(tops);
+				clearInterval(lefts);
+				clearInterval(rights);
+				clearInterval(bottoms);
+			}
+		}
+		document.getElementById("counter").innerHTML = "life = " + (3-counter) + "<br/> Score ="+ score;
+	}
+
+	function startRight(){
+		if(y<1383){
+			y = y+1;
+			document.getElementById("image1").style.left=y+"px";
+			Score();
+		}
+		else{
+			counter++;
+			if(counter<3){
+				clearInterval(tops);
+				clearInterval(lefts);
+				clearInterval(rights);
+				clearInterval(bottoms);
+			}
+			else{
+				document.getElementById("text").innerHTML = " Game Over";
+				clearInterval(tops);
+				clearInterval(lefts);
+				clearInterval(rights);
+				clearInterval(bottoms);
+			}
+		}
+		document.getElementById("counter").innerHTML = "life = " + (3-counter) + "<br/> Score ="+ score;
+
+	}
+
+	function startTop(){
+		if(x>13){	
+			x = x-1;
+			document.getElementById("image1").style.top=x+"px"
+			Score();
+		}
+		else{
+			counter++;
+			if(counter<3){
+				clearInterval(tops);
+				clearInterval(lefts);
+				clearInterval(rights);
+				clearInterval(bottoms);
+			}
+			else{
+				document.getElementById("text").innerHTML = " Game Over";
+				clearInterval(tops);
+				clearInterval(lefts);
+				clearInterval(rights);
+				clearInterval(bottoms);
+			}
+		}
+		document.getElementById("counter").innerHTML = "life = " + (3-counter) + "<br/> Score ="+ score;
+	}
+
+	function startBottom(){
+		if(x<560){	
+			x = x + 1;
+			document.getElementById("image1").style.top=x+"px";
+			Score();	
+		}
+		else{
+			counter++;
+			if(counter<3){
+				clearInterval(tops);
+				clearInterval(lefts);
+				clearInterval(rights);
+				clearInterval(bottoms);
+			}
+			else{
+				document.getElementById("text").innerHTML = " Game Over";
+				clearInterval(tops);
+				clearInterval(lefts);
+				clearInterval(rights);
+				clearInterval(bottoms);
+			}
+	}
+		document.getElementById("counter").innerHTML = "life = " + (3-counter) + "<br/> Score =" + score;		
+	}
+
+	function Score(){
+		if(A-30<y && A+30>y && B-30<x && B+30>x){
+			score++;
+			ball();
+	}}
+		
+	function keyboard(e){
+		if(e.keyCode == 37)
+			onLeft();
+
+		else if(e.keyCode == 38 || e.keyCode == 119)
+			onTop();
+
+		else if(e.keyCode == 39 || e.keyCode == 100)
+			onRight();
+
+		else if(e.keyCode == 40 || e.keyCode == 115)
+			onBottom();
+	}
+
+		function ball(){	
+			A = parseInt(Math.random() * (1263-100));
+			B = parseInt(Math.random() * (500-100));
+
+			document.getElementById("image2").style.left = A+"px";
+			document.getElementById("image2").style.top =B+"px";
+		}
+
+</script>
+		
+</body>
+</html>

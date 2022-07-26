@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width:device-width initial-scale=1">
+	<title>timer</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+
+	<div align="center">
+
+		<span id="hour">00</span> : <span id="minute">00</span> : <span id="second">00</span> : <span id="milisecond">00</span>
+		<br/>
+
+		<input type="button" class="button" id="start" value="start" onclick="starts()">
+		<input type="button" class="button" id="stop" value="stop" onclick="clearInterval(myInterval)">
+		<input type="button" class="button" id="reset" value="clear" onclick="clears()" >
+	</div>
+
+	<script type="text/javascript">
+		
+		
+		function clears() {
+					
+					clearInterval(myInterval);
+					document.getElementById("milisecond").innerHTML = "00"
+					document.getElementById("second").innerHTML = "00"
+					document.getElementById("minute").innerHTML = "00"
+					document.getElementById("hour").innerHTML = "00"
+				}
+		
+		function starts()
+		{
+			myInterval=(setInterval(milis,10))
+
+		}
+			function milis(ms) {
+				ms = parseInt(document.getElementById("milisecond").innerHTML)
+				ms++;
+				document.getElementById("milisecond").innerHTML= ms
+
+				if(ms==99)
+				{
+					document.getElementById("milisecond").innerHTML=0;
+					second();
+				}
+
+				function second()
+				{
+					s = parseInt(document.getElementById("second").innerHTML)
+					s++;
+					document.getElementById("second").innerHTML= s
+
+					if(s==60)
+					{
+						document.getElementById("second").innerHTML=0;
+					minute();
+					}
+
+				}
+				function minute()
+				{
+					m = parseInt(document.getElementById("minute").innerHTML)
+					m++;
+					document.getElementById("minute").innerHTML= m
+
+					if(m==	60)
+					{
+						document.getElementById("minute").innerHTML=0;
+						hour();
+					}
+
+				}
+				function hour()
+				{
+					h = parseInt(document.getElementById("hour").innerHTML)
+					h++;
+					document.getElementById("hour").innerHTML= h
+
+				}
+
+
+				
+			}
+	</script>
+
+</body>
+</html>

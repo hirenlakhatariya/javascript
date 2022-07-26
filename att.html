@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width:device-width initial-scale=1">
+	<title>attandance</title>
+	<style type="text/css">
+		#abs
+		{
+			border-width: 5px;
+			position: absolute;
+			top: 300px;
+			left: 300px;
+			height: 300px;
+			width: 800px;
+			border-width: 5px;
+			border-color: red;
+			font-size: 15px;
+			border-radius: 10PX;
+		}
+
+		#currentRoll
+		{font-size: 150px;
+			color: white;
+			top:  70px;
+			left: 600px;
+			position: absolute;
+
+		}
+		#back{
+			background-color: blueviolet;
+		}
+	</style>
+</head>
+<body onkeypress="checkAttandence(event)" id="back">
+	<div style="text-align: center; " id="currentRoll">
+		101
+	</div>
+	
+	
+
+	<div id="outputDiv"></div>
+	<script type="text/javascript">
+			i = document.getElementById("currentRoll").innerHTML
+
+			for(i=101;i<458;i++)
+				{
+				if(i<159){
+				checkAttandence(e);
+					}
+				if(i>=159)
+				{
+					document.getElementById("currentRoll").innerHTML = 201
+					checkAttandence(e);
+					}
+				}
+			
+			
+		
+		function checkAttandence(e) {
+
+			let unicode = e.which;
+			l =unicode
+		
+		
+			if(l == 97)
+			{
+				document.getElementById("abs").innerHTML += document.getElementById("currentRoll").innerHTML + " ,  "
+
+
+				document.getElementById("currentRoll").innerHTML++
+
+				
+			}
+			if(l == 112)
+			{
+				document.getElementById("currentRoll").innerHTML++
+			}
+
+			
+		}
+	</script>
+	<textarea id="abs" align="center"></textarea>
+</body>
+</html>

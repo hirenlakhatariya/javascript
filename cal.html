@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width:device-width initial-scale=1">
+	<title>calculator</title>
+	<style type="text/css">
+
+		#button
+		{
+			width: 100%;
+			height: 100%;
+			font-size: 35px;
+			border-width: 1px;
+			
+		}
+
+		.top
+		{
+			border-top-left-radius: 14px;
+			border-top-right-radius: 14px;
+		}
+
+		.bl
+		{
+			border-bottom-left-radius: 17px;
+		}
+
+		.br
+		{
+			border-bottom-right-radius: 17px;
+		}
+
+		#table
+		{
+			height: 550px;
+			width: 400px;
+			align-content: center;	
+		}
+
+		table
+		{
+
+  			border: 3px solid black;
+  			border-radius: 20px;
+  			background-color: black	;
+
+		}
+
+		#ans
+		{
+			
+			font-size: 35px;
+			border-top-right-radius: 16px;
+			border-top-left-radius: 16px;
+			height: 95%;
+			width: 98%;
+			background-color: grey;
+			color: white;
+			border-width: 2px;
+			border-color: black;
+		}
+
+		td
+		{
+			width: 25%;
+		}
+		.fourth
+		{
+			background-color: orange;
+		 	color: white;
+		}
+		.number
+		{
+		 	background-color: #f9ecec;
+		}
+
+	</style>
+</head>
+<body>
+
+	<table id="table" align="center" cellpadding="0.8" cellspacing="0.8">
+		<tr>
+			<td colspan="4"><input type="text" id="ans" value="   "></td>
+		</tr>
+
+		<tr>
+
+			<td><input type="button" id="button" class="tl"value="AC" onclick="clearscreen()"></td>
+			<td><input type="button" id="button" value="(" onclick="apend(this)"></td>
+			<td><input type="button" id="button" value=")" onclick="apend(this)"></td>
+
+			<td><input type="button" id="button" class="fourth" value="%" onclick="apend(this)"></td>
+			
+		</tr>
+
+		<tr>
+			<td><input type="button" id="button" class="number" value="7" onclick="apend(this)"></td>
+			<td><input type="button" id="button" class="number" value="8" onclick="apend(this)"></td>
+			<td><input type="button" id="button" class="number" value="9" onclick="apend(this)"></td>
+
+			<td><input type="button" id="button" value="/" class="fourth" onclick="apend(this)"></td>
+		</tr>
+
+		<tr>
+			<td><input type="button" id="button" class="number" value="4" onclick="apend(this)"></td>
+			<td><input type="button" id="button" class="number" value="5" onclick="apend(this)"></td>
+			<td><input type="button" id="button" class="number" value="6" onclick="apend(this)"></td>
+
+			<td><input type="button" id="button" value="*" class="fourth" onclick="apend(this)"></td>
+		</tr>
+
+		<tr>
+			<td><input type="button" id="button" class="number" value="1" onclick="apend(this)"></td>
+			<td><input type="button" id="button" class="number" value="2" onclick="apend(this)"></td>
+			<td><input type="button" id="button" class="number" value="3" onclick="apend(this)"></td>
+
+			<td><input type="button" id="button" value="+" class="fourth" onclick="apend(this)"></td>
+		</tr>
+
+		<tr>
+			<td><input  style="background-color: #f9ecec=" type="button" id="button" class="bl" value="." onclick="apend(this)"></td>
+			<td><input type="button" id="button" class="number" value="0" onclick="apend(this)"></td>
+			<td><input type="button" id="button" class="number" value="=" onclick="calculate()"></td>
+
+			<td><input style="background-color: orange; color: white; " type="button" id="button"class="br" value="-" onclick="apend(this)"></td>
+
+		</tr>
+
+	</table>
+
+
+	
+
+	<script type="text/javascript">
+		
+		function apend(n) {
+
+			document.getElementById("ans").value += n.value;
+
+		}
+
+		function calculate() {
+			
+    		var p = document.getElementById("ans").value;
+    		var q = eval(p);
+    		document.getElementById("ans").value = "  "+q
+}
+
+		function clearscreen()
+		{
+			document.getElementById("ans").value = "";
+		
+}
+
+
+	</script>
+
+</body>
+</html>

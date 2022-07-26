@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width:device-width initial-scale=1">
+	<title>Attandence</title>
+
+	<style type="text/css">
+		#abs
+		{
+			border-width: 5px;
+			position: absolute;
+			top: 250px;
+			left: 500px;
+			height: 300px;
+			width: 300px;
+			border-width: 3px;
+			border-color: red;
+			font-size: 15px;
+		
+		}
+	</style>
+</head>
+<body>
+		<h1>Attandence</h1>
+
+		<textarea id="abs" align="center"></textarea>
+			
+			<script type="text/javascript">
+
+			for(i=101;i<159;i++)
+				
+			{
+				document.write(' <br/><input type="checkbox" id="std'+i+'"  value="'+i+'" onclick="myfunction(this)">' +i);
+						
+					}
+
+			for(i=201;i<259;i++)
+			{
+				document.write(' <br/><input type="checkbox" id="std'+i+'"  value="'+i+'" onclick="myfunction(this)">' +i);
+				
+		}
+		
+			for(i=301;i<359;i++)
+			{
+				document.write(' <br/><input type="checkbox" id="std'+i+'"  value="'+i+'" onclick="myfunction(this)">' +i)
+				}
+		
+			for(i=401;i<459;i++)
+			{
+				document.write(' <br/><input type="checkbox" id="std'+i+'"  value="'+i+'" onclick="myfunction(this)">' +i)
+				
+			}
+			
+			function myfunction(e)
+			{
+				student = document.getElementsByTagName("input")
+				ans = ""
+				for(i=0;i<student.length;i++)
+				{
+					if(student[i].checked)
+					{
+						ans += student[i].value + " , "
+					}
+				}
+			document.getElementById("abs").innerHTML = ans
+			}
+		</script>
+</body>
+</html>
